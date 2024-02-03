@@ -1,0 +1,13 @@
+{
+  "name": "kinopoisk-break",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "vite": "^5.0.8"
+  }
+}
