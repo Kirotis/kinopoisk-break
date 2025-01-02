@@ -3,11 +3,16 @@ import { createGGHref } from "./createGGHref";
 import { createTorrentHref } from "./createTorrentHref";
 
 export function createParent() {
-  const div = document.createElement("div");
-  div.className = "custom-parent";
-  div.appendChild(createGGHref());
-  div.appendChild(createTorrentHref());
-  return div;
+  const btnGroup = document.createElement("div");
+  btnGroup.className = "custom-group";
+  btnGroup.appendChild(createGGHref());
+  btnGroup.appendChild(createTorrentHref());
+
+  const parent = document.createElement("div");
+  parent.className = "custom-parent";
+  parent.appendChild(btnGroup);
+
+  return parent;
 }
 
 export function integrateParent() {

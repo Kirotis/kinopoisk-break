@@ -1,21 +1,26 @@
 import { integrateParent, integrateStyle, deleteParent } from "@/featuries";
 
-function startHandleUrl() {
-  setInterval(() => {
-    if (window.location.href === currentUrl) {
+function startNewHandleUrl() {
+  let currentUrl = "";
+
+  const observer = new MutationObserver(() => {
+    if (currentUrl === window.location.href) {
       return;
     }
+
     currentUrl = window.location.href;
-    const continueHandle =
-      currentUrl.search("/film/") >= 0 || currentUrl.search("/series/") >= 0;
-    if (continueHandle) {
-      return integrateParent();
-    }
+    const [matches] = [...currentUrl.matchAll(/\/?(film|series)\/?([0-9]*)/gs)];
+
     deleteParent();
-  }, 1_000);
+    switch (matches?.[1]) {
+      case "film":
+      case "series":
+        return integrateParent();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
-let currentUrl;
-
 integrateStyle();
-startHandleUrl();
+// startHandleUrl();
+startNewHandleUrl();

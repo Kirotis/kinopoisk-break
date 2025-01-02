@@ -25,18 +25,21 @@ export function createStyle() {
         top: 0em;
         left: 2em;
         bottom: 0px;
-        display: flex;
-        flex-diraction: column;
-        gap: 5px;
+    }
+    div.custom-group {
+      position: sticky;
+      display: flex;
+      flex-direction: column;      
+      z-index: 1;
+      top: 7em;
     }
     a.custom-link {
-        z-index: 1;
-        top: 7em;
-        position: sticky;
         font-family: Graphik Kinopoisk LC Web,Tahoma,Arial,Verdana,sans-serif;
         cursor: pointer;
     } 
     button.custom-button {
+        width: 100%;
+        margin-top: 5px;
         cursor: pointer;
         font-weight: bold;
         --b: 3px;   /* border thickness */
